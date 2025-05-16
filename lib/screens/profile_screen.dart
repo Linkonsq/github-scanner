@@ -12,6 +12,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final _usernameController = TextEditingController();
+  String _username = '';
 
   String _extractUsername(String input) {
     input = input.trim();
@@ -37,6 +38,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future<void> _fetchUser() async {
     final username = _extractUsername(_usernameController.text);
+    setState(() {
+      _username = username;
+    });
 
     if (username.isEmpty) {
       context.read<GitHubProvider>().clearError();
@@ -206,8 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         MaterialPageRoute(
                                           builder:
                                               (context) => RepositoriesScreen(
-                                                username:
-                                                    _usernameController.text,
+                                                username: _username,
                                               ),
                                         ),
                                       );
