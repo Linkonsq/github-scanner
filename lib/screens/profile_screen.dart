@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_scanner/providers/github_provider.dart';
+import 'package:github_scanner/screens/repositories_screen.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -194,7 +195,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   const SizedBox(height: 24),
                                   ElevatedButton.icon(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder:
+                                              (context) => RepositoriesScreen(
+                                                username:
+                                                    _usernameController.text,
+                                              ),
+                                        ),
+                                      );
+                                    },
                                     icon: const Icon(Icons.folder),
                                     label: const Text('View Repositories'),
                                   ),
