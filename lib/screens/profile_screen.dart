@@ -38,6 +38,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> _fetchUser() async {
     final username = _extractUsername(_usernameController.text);
 
+    if (username.isEmpty) {
+      context.read<GitHubProvider>().clearError();
+      return;
+    }
+
     await context.read<GitHubProvider>().fetchUser(username);
   }
 

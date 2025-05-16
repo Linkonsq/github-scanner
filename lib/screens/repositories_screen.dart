@@ -76,21 +76,6 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
                   ),
                 ),
                 ListTile(
-                  title: const Text('Stars'),
-                  leading: Radio<String>(
-                    value: 'stars',
-                    groupValue: _sortBy,
-                    onChanged: (value) {
-                      setState(() {
-                        _sortBy = value!;
-                        _sortDirection = 'desc';
-                      });
-                      Navigator.pop(context);
-                      _loadRepositories(refresh: true);
-                    },
-                  ),
-                ),
-                ListTile(
                   title: const Text('Name'),
                   leading: Radio<String>(
                     value: 'name',
@@ -313,12 +298,12 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
                                             Icons.star,
                                             repo.stars.toString(),
                                           ),
-                                          const SizedBox(width: 12),
+                                          const SizedBox(width: 10),
                                           _buildStatChip(
                                             Icons.code,
                                             repo.language,
                                           ),
-                                          const SizedBox(width: 12),
+                                          const SizedBox(width: 10),
                                           _buildStatChip(
                                             Icons.update,
                                             _formatDate(repo.updatedAt),
@@ -359,12 +344,20 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(12),
       ),
+      constraints: const BoxConstraints(maxWidth: 120),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(icon, size: 16, color: Colors.grey[700]),
           const SizedBox(width: 4),
-          Text(label, style: TextStyle(color: Colors.grey[700], fontSize: 12)),
+          Flexible(
+            child: Text(
+              label,
+              style: TextStyle(color: Colors.grey[700], fontSize: 12),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            ),
+          ),
         ],
       ),
     );

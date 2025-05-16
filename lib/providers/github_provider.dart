@@ -93,4 +93,9 @@ class GitHubProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  void clearError() {
+    _error = null;
+    notifyListeners();
+  }
 }
