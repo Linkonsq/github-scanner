@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_scanner/providers/github_provider.dart';
+import 'package:github_scanner/screens/repository_details_screen.dart';
 import 'package:provider/provider.dart';
 
 class RepositoriesScreen extends StatefulWidget {
@@ -324,7 +325,17 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
                                       ),
                                     ],
                                   ),
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder:
+                                            (context) => RepositoryDetailScreen(
+                                              repository: repo,
+                                            ),
+                                      ),
+                                    );
+                                  },
                                 ),
                               );
                             },
