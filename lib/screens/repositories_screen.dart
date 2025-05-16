@@ -21,7 +21,9 @@ class _RepositoriesScreenState extends State<RepositoriesScreen> {
   @override
   void initState() {
     super.initState();
-    _loadRepositories();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadRepositories();
+    });
   }
 
   Future<void> _loadRepositories({bool refresh = false, int? page}) async {
