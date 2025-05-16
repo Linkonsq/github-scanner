@@ -1,16 +1,10 @@
-# github_scanner
+# GitHub Scanner
 
-An app to get user's public information from github by their username
+A Flutter application that allows users to explore GitHub profiles, view repositories, and see repository details with a clean, intuitive interface.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- GitHub Profile Screen: View detailed information about any GitHub user
+- Repositories List: Browse a user's public repositories with pagination
+- Repository Details: See detailed information about a specific repository
+- Flexible Search: Search by GitHub username or full profile URL (e.g., Linkonsq or https://github.com/Linkonsq)
